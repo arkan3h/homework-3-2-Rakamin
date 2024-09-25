@@ -9,7 +9,7 @@ function splitArrayByIndex(array) {
     var evenArray = [];
     var oddArray = [];
     for (var i = 0; i < array.length; i++) {
-        if (array[i] % 2 === 0) {
+        if (i % 2 === 0) {
             evenArray.push(array[i]);
         }
         else {
@@ -48,15 +48,12 @@ function getAverage(array) {
     return total / array.length;
 }
 function compareArrays(evenArray, oddArray) {
-    var evenMin = getMinValue(evenArray);
-    var oddMin = getMinValue(oddArray);
     var evenMax = getMaxValue(evenArray);
     var oddMax = getMaxValue(oddArray);
     var evenTotal = getTotal(evenArray);
     var oddTotal = getTotal(oddArray);
     var evenAverage = getAverage(evenArray);
     var oddAverage = getAverage(oddArray);
-    console.log("Min lebih besar: ".concat(evenMin > oddMin ? 'Array Genap' : 'Array Ganjil'));
     console.log("Max lebih besar: ".concat(evenMax > oddMax ? 'Array Genap' : 'Array Ganjil'));
     if (evenTotal > oddTotal) {
         console.log('Total lebih besar array genap');
@@ -77,6 +74,58 @@ function compareArrays(evenArray, oddArray) {
         console.log('Rata-rata memiliki nilai yang sama antara array genap dan ganjil');
     }
 }
+function compareMin(evenArray, oddArray) {
+    var evenMin = getMinValue(evenArray);
+    var oddMin = getMinValue(oddArray);
+    if (evenMin > oddMin) {
+        console.log('Min lebih besar array genap');
+    }
+    else if (evenMin < oddMin) {
+        console.log('Min lebih besar array ganjil');
+    }
+    else {
+        console.log('Min memiliki nilai yang sama antara array genap dan ganjil');
+    }
+}
+function compareMax(evenArray, oddArray) {
+    var evenMax = getMaxValue(evenArray);
+    var oddMax = getMaxValue(oddArray);
+    if (evenMax > oddMax) {
+        console.log('Max lebih besar array genap');
+    }
+    else if (evenMax < oddMax) {
+        console.log('Max lebih besar array ganjil');
+    }
+    else {
+        console.log('Max memiliki nilai yang sama antara array genap dan ganjil');
+    }
+}
+function compareTotal(evenArray, oddArray) {
+    var evenTotal = getTotal(evenArray);
+    var oddTotal = getTotal(oddArray);
+    if (evenTotal > oddTotal) {
+        console.log('Total lebih besar array genap');
+    }
+    else if (evenTotal < oddTotal) {
+        console.log('Total lebih besar array ganjil');
+    }
+    else if (evenTotal == oddTotal) {
+        console.log('Total memiliki nilai yang sama antara array genap dan ganjil');
+    }
+}
+function compareAverage(evenArray, oddArray) {
+    var evenAverage = getAverage(evenArray);
+    var oddAverage = getAverage(oddArray);
+    if (evenAverage > oddAverage) {
+        console.log('Rata-rata lebih besar array genap');
+    }
+    else if (evenAverage < oddAverage) {
+        console.log('Rata-rata lebih besar array ganjil');
+    }
+    else {
+        console.log('Rata-rata memiliki nilai yang sama antara array genap dan ganjil');
+    }
+}
 function main() {
     var randomArray = generateRandomArray(100);
     console.log("Array dengan 100 nilai random: ", randomArray);
@@ -94,7 +143,10 @@ function main() {
     console.log("Total: ".concat(getTotal(oddArray)));
     console.log("Rata-rata: ".concat(getAverage(oddArray)));
     console.log("\nPerbandingan nilai min, max, total, dan rata-rata");
-    compareArrays(evenArray, oddArray);
+    compareMin(evenArray, oddArray);
+    compareMax(evenArray, oddArray);
+    compareTotal(evenArray, oddArray);
+    compareAverage(evenArray, oddArray);
     console.log("");
 }
 main();
