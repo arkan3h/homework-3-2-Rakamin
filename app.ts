@@ -52,36 +52,6 @@ function getAverage(array: number[]): number {
     return total / array.length;
 }
 
-function compareArrays(evenArray: number[], oddArray: number[]): void {
-
-    const evenMax = getMaxValue(evenArray);
-    const oddMax = getMaxValue(oddArray);
-
-    const evenTotal = getTotal(evenArray);
-    const oddTotal = getTotal(oddArray);
-
-    const evenAverage = getAverage(evenArray);
-    const oddAverage = getAverage(oddArray);
-
-    console.log(`Max lebih besar: ${evenMax > oddMax ? 'Array Genap' : 'Array Ganjil'}`);
-
-    if (evenTotal > oddTotal) {
-        console.log('Total lebih besar array genap');
-    } else if (evenTotal < oddTotal) {
-        console.log('Total lebih besar array ganjil');
-    } else if (evenTotal == oddTotal) {
-        console.log('Total memiliki nilai yang sama antara array genap dan ganjil');
-    }
-
-    if (evenAverage > oddAverage) {
-        console.log('Rata-rata lebih besar array genap');
-    } else if (evenAverage < oddAverage) {
-        console.log('Rata-rata lebih besar array ganjil');
-    } else if (evenAverage == oddAverage) {
-        console.log('Rata-rata memiliki nilai yang sama antara array genap dan ganjil');
-    }
-}
-
 function compareMin(evenArray: number[], oddArray: number[]): void {
     const evenMin = getMinValue(evenArray);
     const oddMin = getMinValue(oddArray);
